@@ -17,7 +17,7 @@
  * });
  * 
  * // In rennder loop
- * shadows.render();
+ * shadows.update();
  * renderer.render(scene, camera);
  * 
  * // Clean
@@ -263,6 +263,72 @@ class ContactShadowsXR {
                 this._render();
             }
         }
+    }
+
+    dispose() {
+
+        if (this.planeWithShadow) {
+            this.scene.remove(this.planeWithShadow);
+
+            if (this.planeWithShadow.geometry) {
+                this.planeWithShadow.geometry.dispose();
+            }
+            if (this.planeWithShadow.material) {
+                this.planeWithShadow.material.dispose();
+            }
+        }
+
+        if (this.renderTarget) {
+            this.renderTarget.dispose();
+        }
+        if (this.renderTargetBlur) {
+            this.renderTargetBlur.dispose();
+        }
+
+        if (this.finalTexture) {
+            this.finalTexture.dispose();
+        }
+
+        if (this.depthMaterial) {
+            this.depthMaterial.dispose();
+        }
+        if (this.horizontalBlurMaterial) {
+            this.horizontalBlurMaterial.dispose();
+        }
+        if (this.verticalBlurMaterial) {
+            this.verticalBlurMaterial.dispose();
+        }
+
+        if (this.blurPlane) {
+            if (this.blurPlane.geometry) {
+                this.blurPlane.geometry.dispose();
+            }
+        }
+
+        if (this.shadowRenderer) {
+            this.shadowRenderer.dispose();
+        }
+
+        if (this.shadowScene) {
+            while (this.shadowScene.children.length > 0) {
+                this.shadowScene.remove(this.shadowScene.children[0]);
+            }
+        }
+
+        this.scene = null;
+        this.mainRenderer = null;
+        this.shadowRenderer = null;
+        this.shadowScene = null;
+        this.shadowGroup = null;
+        this.renderTarget = null;
+        this.renderTargetBlur = null;
+        this.shadowCamera = null;
+        this.depthMaterial = null;
+        this.horizontalBlurMaterial = null;
+        this.verticalBlurMaterial = null;
+        this.blurPlane = null;
+        this.planeWithShadow = null;
+        this.finalTexture = null;
     }
 }
 
