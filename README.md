@@ -3,7 +3,7 @@
 The regular ContactShadow provided with ThreeJS doesn't work for XR, so this is my implementation.
 Nothing fancy, I've just copied the code from the "official" version https://threejs.org/examples/webgl_shadow_contact.html and I've changed it quite a bit to work for XR.
 Performances where a issue, but I've implemented some optimizations and actually it work quite smooth on my old Galaxy S10 (with blurred shadow and a lot of geometry too).
-Any upgrade that you like to share will be much appreciated!
+Any improvement that you like to share will be much appreciated!
 
 
 ## Installation
