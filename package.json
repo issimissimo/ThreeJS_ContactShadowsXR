@@ -1,0 +1,23 @@
+{
+  "name": "contact-shadows-xr-for-three",
+  "private": false,
+  "license": "MIT",
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "serve-public": "concurrently \"npm run dev\" \"cloudflared tunnel --url http://localhost:5173\"",
+    "preview": "vite preview",
+    "subdir-build": "vite build --base=/threejs/"
+  },
+  "devDependencies": {
+    "cloudflared": "^0.4.0",
+    "concurrently": "^9.1.2",
+    "vite": "^4.3.9"
+  },
+  "dependencies": {
+    "@pmndrs/vanilla": "^1.24.1",
+    "three": "^0.179.1"
+  }
+}
