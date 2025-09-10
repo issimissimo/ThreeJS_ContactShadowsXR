@@ -97,11 +97,6 @@ class ContactShadowsXR {
 
     _init() {
 
-        // Add models from the main scene
-        this.scene.children.forEach(child => {
-            this.shadowScene.add(child.clone(true));
-        });
-
         // The main container. If you want to move everything just move this!
         this.shadowGroup = new Group();
         this.shadowGroup.position.add(this.offset);
